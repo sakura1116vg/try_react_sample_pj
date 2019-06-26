@@ -8,6 +8,7 @@ var basePath = __dirname;
 module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
+    // extensions: [".js", ".ts", ".tsx", ".css"]
     extensions: [".js", ".ts", ".tsx"]
   },
   entry: ["@babel/polyfill", "./index.tsx"],
@@ -20,7 +21,7 @@ module.exports = {
     contentBase: "./dist", // Content base
     inline: true, // Enable watch and live reload
     host: "localhost",
-    port: 3000,
+    port: 3002,
     stats: "errors-only"
   },
   module: {
@@ -36,6 +37,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: /node_modules/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
